@@ -1,0 +1,14 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Godot-specific ignores
+*.tmp
+
+# Mobile export artifacts
+android/
+ios/
+
+# OS-specific ignores
+.DS_Store
+Thumbs.db
