@@ -1,6 +1,8 @@
 class_name WizardManagerCode
 extends Node
 
+const WIZARD_RENDERER: PackedScene = preload("res://scenes/wizard/WizardRenderer.tscn")
+
 ## The active window (or null)
 var active_renderer: Window = null
 
@@ -19,6 +21,10 @@ func create_window() -> Window:
 	
 	# Required: Handle the close button (X)
 	active_renderer.close_requested.connect(_on_window_close_requested)
+
+	# Populte the window
+	var renderer = WIZARD_RENDERER.instantiate()
+	active_renderer.add_child(renderer)
 	
 	add_child(active_renderer)
 	active_renderer.show() # Make sure it's visible

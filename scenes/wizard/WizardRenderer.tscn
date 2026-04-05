@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwfefk64x8nb1"]
+
+[ext_resource type="Texture2D" uid="uid://c4i6i4lbkgkk2" path="res://assets/img/SmokePIpe.png" id="1_th6oy"]
+
+[node name="WizardRenderer" type="Node2D"]
+
+[node name="PipeSprite" type="Sprite2D" parent="."]
+position = Vector2(280, 430)
+scale = Vector2(0.265381, 0.265381)
+texture = ExtResource("1_th6oy")

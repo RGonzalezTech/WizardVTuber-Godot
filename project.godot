@@ -22,9 +22,8 @@ WizardManager="*res://scripts/autoloads/WizardManager.gd"
 
 [display]
 
-window/size/viewport_width=600
+window/size/viewport_width=400
 window/size/viewport_height=400
-window/size/resizable=false
 window/size/transparent=true
 window/subwindows/embed_subwindows=false
 window/per_pixel_transparency/allowed=true
