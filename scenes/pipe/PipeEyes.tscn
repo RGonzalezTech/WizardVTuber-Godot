@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://blpox8kjkbyo5"]
+
+[ext_resource type="Script" uid="uid://dphwui6kt8jla" path="res://scripts/components/blink_manager.gd" id="1_bfcvk"]
+[ext_resource type="Texture2D" uid="uid://c7djuc7cx7f6f" path="res://assets/img/SmokePipe_EyeOpen.png" id="2_eoia0"]
+[ext_resource type="Texture2D" uid="uid://i52yoo5mhg6d" path="res://assets/img/SmokePipe_EyeClosed.png" id="3_v6xtj"]
+
+[node name="PipeEyes" type="Node2D" node_paths=PackedStringArray("eyes_open", "eyes_closed")]
+script = ExtResource("1_bfcvk")
+eyes_open = NodePath("EyesOpen")
+eyes_closed = NodePath("EyesClosed")
+metadata/_custom_type_script = "uid://dphwui6kt8jla"
+
+[node name="EyesOpen" type="Node2D" parent="."]
+
+[node name="LeftEyeOpen" type="Sprite2D" parent="EyesOpen"]
+position = Vector2(-170, 0)
+texture = ExtResource("2_eoia0")
+flip_h = true
+
+[node name="RightEyeOpen" type="Sprite2D" parent="EyesOpen"]
+position = Vector2(170, 0)
+texture = ExtResource("2_eoia0")
+
+[node name="EyesClosed" type="Node2D" parent="."]
+visible = false
+
+[node name="LeftEyeClosed" type="Sprite2D" parent="EyesClosed"]
+position = Vector2(-170, 0)
+texture = ExtResource("3_v6xtj")
+
+[node name="LeftEyeClosed2" type="Sprite2D" parent="EyesClosed"]
+position = Vector2(170, 0)
+texture = ExtResource("3_v6xtj")
