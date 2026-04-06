@@ -16,9 +16,14 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 0)
 config/icon="res://icon.svg"
 
+[audio]
+
+driver/enable_input=true
+
 [autoload]
 
 WizardManager="*res://scripts/autoloads/WizardManager.gd"
+AudioManager="*res://scripts/autoloads/AudioManager.gd"
 
 [display]
 

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj2ryxeif40yk"]
+
+[ext_resource type="Script" uid="uid://colmm3plqiead" path="res://scripts/components/mouth_manager.gd" id="1_tx10o"]
+[ext_resource type="Texture2D" uid="uid://c1dyyfk77i7c7" path="res://assets/img/SmokePipe_MouthOpen.png" id="2_5bqtx"]
+[ext_resource type="Texture2D" uid="uid://ck1js5vt4j8k6" path="res://assets/img/SmokePipe_MouthClosed.png" id="3_ugxfo"]
+
+[node name="PipeMouth" type="Node2D" node_paths=PackedStringArray("mouth_open", "mouth_closed")]
+script = ExtResource("1_tx10o")
+mouth_open = NodePath("MouthOpen")
+mouth_closed = NodePath("MouthClosed")
+
+[node name="MouthOpen" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_5bqtx")
+
+[node name="MouthClosed" type="Sprite2D" parent="."]
+position = Vector2(0, -61)
+texture = ExtResource("3_ugxfo")

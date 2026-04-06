@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdl1vdoanwbiy"]
+[gd_scene load_steps=8 format=3 uid="uid://bdl1vdoanwbiy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
 content_margin_left = 10.0
@@ -59,6 +59,28 @@ func _sync_label() -> void:
 	text = \"Stop\" if WizardManager.is_window_open() else \"Start\"
 "
 
+[sub_resource type="GDScript" id="GDScript_settings"]
+resource_name = "OnSettings"
+script/source = "extends Button
+
+const SettingsModal := preload(\"res://scenes/ui/SettingsModal.tscn\")
+
+var _layer: CanvasLayer = null
+
+func _pressed() -> void:
+	if _layer != null:
+		return
+	_layer = CanvasLayer.new()
+	_layer.layer = 128
+	get_tree().root.get_child(0).add_child(_layer)
+	var modal := SettingsModal.instantiate()
+	modal.closed.connect(func():
+		_layer.queue_free()
+		_layer = null
+	)
+	_layer.add_child(modal)
+"
+
 [sub_resource type="GDScript" id="GDScript_kjwba"]
 resource_name = "OnQuit"
 script/source = "extends Button
@@ -117,6 +139,7 @@ script = SubResource("GDScript_i26rj")
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Settings"
+script = SubResource("GDScript_settings")
 
 [node name="QuitBtn" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(160, 0)

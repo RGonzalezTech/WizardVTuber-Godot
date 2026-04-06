@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwfefk64x8nb1"]
+[gd_scene load_steps=4 format=3 uid="uid://bwfefk64x8nb1"]
 
 [ext_resource type="Texture2D" uid="uid://c4i6i4lbkgkk2" path="res://assets/img/SmokePIpe.png" id="1_th6oy"]
 [ext_resource type="PackedScene" uid="uid://blpox8kjkbyo5" path="res://scenes/pipe/PipeEyes.tscn" id="2_tfchw"]
+[ext_resource type="PackedScene" uid="uid://bj2ryxeif40yk" path="res://scenes/pipe/PipeMouth.tscn" id="3_p2oxx"]
 
 [node name="WizardRenderer" type="Node2D"]
 
@@ -13,3 +14,8 @@ texture = ExtResource("1_th6oy")
 [node name="PipeEyes" parent="PipeSprite" instance=ExtResource("2_tfchw")]
 position = Vector2(-459.716, 146.959)
 scale = Vector2(0.8, 0.8)
+
+[node name="PipeMouth" parent="PipeSprite" instance=ExtResource("3_p2oxx")]
+position = Vector2(-448.412, 320.294)
+scale = Vector2(0.698547, 0.698547)
+close_delay = 0.1
