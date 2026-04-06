@@ -1,21 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwfefk64x8nb1"]
+[gd_scene load_steps=6 format=3 uid="uid://bwfefk64x8nb1"]
 
+[ext_resource type="Script" uid="uid://bb1hgdmuo5ss2" path="res://scripts/components/rotate_manager.gd" id="1_ek8wb"]
 [ext_resource type="Texture2D" uid="uid://c4i6i4lbkgkk2" path="res://assets/img/SmokePIpe.png" id="1_th6oy"]
 [ext_resource type="PackedScene" uid="uid://blpox8kjkbyo5" path="res://scenes/pipe/PipeEyes.tscn" id="2_tfchw"]
 [ext_resource type="PackedScene" uid="uid://bj2ryxeif40yk" path="res://scenes/pipe/PipeMouth.tscn" id="3_p2oxx"]
+[ext_resource type="PackedScene" uid="uid://dt7cqrjqpb4du" path="res://scenes/pipe/PipeSmoke.tscn" id="5_k812v"]
 
 [node name="WizardRenderer" type="Node2D"]
 
-[node name="PipeSprite" type="Sprite2D" parent="."]
-position = Vector2(280, 430)
-scale = Vector2(0.265381, 0.265381)
+[node name="PipeAnchor" type="Node2D" parent="." node_paths=PackedStringArray("rotate_target")]
+position = Vector2(444, 332)
+script = ExtResource("1_ek8wb")
+rotate_target = NodePath(".")
+rotation_min_deg = 0.0
+rotation_max_deg = 3.0
+rotation_smoothing = 0.33
+active_threshold = 0.3
+return_delay = 0.25
+
+[node name="PipeSprite" type="Sprite2D" parent="PipeAnchor"]
+position = Vector2(-164, 108)
+scale = Vector2(0.206216, 0.206216)
 texture = ExtResource("1_th6oy")
 
-[node name="PipeEyes" parent="PipeSprite" instance=ExtResource("2_tfchw")]
+[node name="PipeEyes" parent="PipeAnchor/PipeSprite" instance=ExtResource("2_tfchw")]
 position = Vector2(-459.716, 146.959)
 scale = Vector2(0.8, 0.8)
 
-[node name="PipeMouth" parent="PipeSprite" instance=ExtResource("3_p2oxx")]
+[node name="PipeMouth" parent="PipeAnchor/PipeSprite" instance=ExtResource("3_p2oxx")]
 position = Vector2(-448.412, 320.294)
 scale = Vector2(0.698547, 0.698547)
 close_delay = 0.1
+
+[node name="PipeSmoke" parent="PipeAnchor/PipeSprite" instance=ExtResource("5_k812v")]
+position = Vector2(-425.803, -113.045)
+scale = Vector2(4.854, 4.854)

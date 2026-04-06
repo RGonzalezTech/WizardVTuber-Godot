@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://dt7cqrjqpb4du"]
+
+[ext_resource type="Texture2D" uid="uid://etrbwofbb13v" path="res://assets/img/SmokePipe_SmokeParticle.png" id="1_ctbye"]
+
+[sub_resource type="Curve" id="Curve_3ujhu"]
+_data = [Vector2(0, 0.152941), 0.0, 0.0, 0, 0, Vector2(0.597156, 0.847059), 0.0, 0.0, 0, 0, Vector2(0.952607, 0.429412), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_01t1v"]
+curve = SubResource("Curve_3ujhu")
+
+[sub_resource type="Gradient" id="Gradient_ctbye"]
+colors = PackedColorArray(0.714999, 0.379393, 0.899157, 1, 0.621009, 0.743358, 0.874078, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3ujhu"]
+gradient = SubResource("Gradient_ctbye")
+
+[sub_resource type="Curve" id="Curve_ctbye"]
+_data = [Vector2(0, 0.105882), 0.0, 0.0, 0, 0, Vector2(0.362559, 0.529412), 1.26374, 1.26374, 0, 0, Vector2(0.748815, 1), 0.0, 0.0, 0, 0, Vector2(0.978673, 0.635294), -2.21827, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_3ujhu"]
+curve = SubResource("Curve_ctbye")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uok1s"]
+particle_flag_disable_z = true
+angle_min = -262.9
+angle_max = 231.7
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 300.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 20, 0)
+linear_accel_min = -32.63
+linear_accel_max = -32.63
+radial_accel_min = 7.39
+radial_accel_max = 7.39
+scale_curve = SubResource("CurveTexture_3ujhu")
+color_ramp = SubResource("GradientTexture1D_3ujhu")
+alpha_curve = SubResource("CurveTexture_01t1v")
+
+[node name="PipeSmoke" type="GPUParticles2D"]
+texture = ExtResource("1_ctbye")
+lifetime = 3.0
+speed_scale = 0.4
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_uok1s")
