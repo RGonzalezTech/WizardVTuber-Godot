@@ -10,6 +10,16 @@ extends Node2D
 ## The mouth sprite/node to show when silent (audio below threshold)
 @export var mouth_closed: Node2D
 
+@export_group("Mouth Open Scale")
+## X scale of mouth_open at minimum volume (open_threshold). Higher = wider.
+@export_range(0.1, 3.0, 0.01) var mouth_open_scale_x_min: float = 1.3
+## X scale of mouth_open at maximum volume (1.0). Lower = narrower.
+@export_range(0.1, 3.0, 0.01) var mouth_open_scale_x_max: float = 0.7
+## Y scale of mouth_open at minimum volume (open_threshold). Lower = flatter.
+@export_range(0.1, 3.0, 0.01) var mouth_open_scale_y_min: float = 0.3
+## Y scale of mouth_open at maximum volume (1.0). Higher = taller.
+@export_range(0.1, 3.0, 0.01) var mouth_open_scale_y_max: float = 1.2
+
 @export_group("Audio Sensitivity")
 ## Audio level (0.0 – 1.0) that must be exceeded for the mouth to open.
 ## Raise this if the mouth opens too easily; lower it if it feels sluggish.
@@ -92,6 +102,7 @@ func _on_poll() -> void:
 		# Open the mouth once the hold requirement is met
 		if _active_time >= open_hold_time:
 			_set_mouth_open(true)
+			_update_mouth_open_scale(volume)
 	else:
 		# Reset the open-hold accumulator
 		_active_time = 0.0
@@ -102,6 +113,17 @@ func _on_poll() -> void:
 			# if the mouth is still open, then we will start counting down
 			# to close the mouth (occurs in _process)
 			_stop_talking_countdown = close_delay
+
+## Scales the mouth_open sprite based on the current volume level.
+## volume is mapped from [open_threshold, 1.0] → [min_scale, max_scale] on each axis.
+func _update_mouth_open_scale(volume: float) -> void:
+	var t: float = clamp(
+		(volume - open_threshold) / (1.0 - open_threshold),
+		0.0, 1.0
+	)
+	var scale_x: float = lerp(mouth_open_scale_x_min, mouth_open_scale_x_max, t)
+	var scale_y: float = lerp(mouth_open_scale_y_min, mouth_open_scale_y_max, t)
+	mouth_open.scale = Vector2(scale_x, scale_y)
 
 # ---------------------------------------------------------------------------
 # State helpers
