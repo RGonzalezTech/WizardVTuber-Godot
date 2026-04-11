@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwfefk64x8nb1"]
+[gd_scene load_steps=7 format=3 uid="uid://bwfefk64x8nb1"]
 
 [ext_resource type="Script" uid="uid://bb1hgdmuo5ss2" path="res://scripts/components/rotate_manager.gd" id="1_ek8wb"]
 [ext_resource type="Texture2D" uid="uid://c4i6i4lbkgkk2" path="res://assets/img/SmokePIpe.png" id="1_th6oy"]
 [ext_resource type="PackedScene" uid="uid://blpox8kjkbyo5" path="res://scenes/pipe/PipeEyes.tscn" id="2_tfchw"]
 [ext_resource type="PackedScene" uid="uid://bj2ryxeif40yk" path="res://scenes/pipe/PipeMouth.tscn" id="3_p2oxx"]
 [ext_resource type="PackedScene" uid="uid://dt7cqrjqpb4du" path="res://scenes/pipe/PipeSmoke.tscn" id="5_k812v"]
+[ext_resource type="PackedScene" uid="uid://cfn4v8ggufpvb" path="res://scenes/pipe/PipeEmbers.tscn" id="6_me2rj"]
 
 [node name="WizardRenderer" type="Node2D"]
 
@@ -35,3 +36,7 @@ close_delay = 0.1
 [node name="PipeSmoke" parent="PipeAnchor/PipeSprite" instance=ExtResource("5_k812v")]
 position = Vector2(-425.803, -113.045)
 scale = Vector2(4.854, 4.854)
+
+[node name="PipeEmbers" parent="PipeAnchor/PipeSprite" instance=ExtResource("6_me2rj")]
+position = Vector2(-460.682, -130.931)
+scale = Vector2(0.633349, 0.633349)
