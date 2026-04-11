@@ -12,3 +12,7 @@ ios/
 # OS-specific ignores
 .DS_Store
 Thumbs.db
+
+# Ignore build / prod
+build/
+export_presets.cfg
