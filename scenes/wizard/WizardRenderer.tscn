@@ -1,13 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwfefk64x8nb1"]
+[gd_scene load_steps=9 format=3 uid="uid://bwfefk64x8nb1"]
 
 [ext_resource type="Script" uid="uid://bb1hgdmuo5ss2" path="res://scripts/components/rotate_manager.gd" id="1_ek8wb"]
 [ext_resource type="Texture2D" uid="uid://c4i6i4lbkgkk2" path="res://assets/img/SmokePIpe.png" id="1_th6oy"]
 [ext_resource type="PackedScene" uid="uid://blpox8kjkbyo5" path="res://scenes/pipe/PipeEyes.tscn" id="2_tfchw"]
+[ext_resource type="Script" uid="uid://bfi0eo4opw7tc" path="res://scripts/components/inhale_manager.gd" id="3_ms8cu"]
 [ext_resource type="PackedScene" uid="uid://bj2ryxeif40yk" path="res://scenes/pipe/PipeMouth.tscn" id="3_p2oxx"]
-[ext_resource type="PackedScene" uid="uid://dt7cqrjqpb4du" path="res://scenes/pipe/PipeSmoke.tscn" id="5_k812v"]
+[ext_resource type="PackedScene" uid="uid://dt7cqrjqpb4du" path="res://scenes/pipe/PipeSmokeDim.tscn" id="5_k812v"]
 [ext_resource type="PackedScene" uid="uid://cfn4v8ggufpvb" path="res://scenes/pipe/PipeEmbers.tscn" id="6_me2rj"]
+[ext_resource type="PackedScene" uid="uid://dsb24y56g2vc4" path="res://scenes/pipe/PipeSmokeExplosive.tscn" id="8_t2s6u"]
 
 [node name="WizardRenderer" type="Node2D"]
+
+[node name="InhaleManager" type="Node" parent="." node_paths=PackedStringArray("ember_manager", "dim_smoke", "burst_smoke")]
+script = ExtResource("3_ms8cu")
+ember_manager = NodePath("../PipeAnchor/PipeEmbersContainer/PipeEmbers")
+dim_smoke = NodePath("../PipeAnchor/PipeEmbersContainer/PipeDimSmoke")
+burst_smoke = NodePath("../PipeAnchor/PipeEmbersContainer/PipeSmokeExplosive")
+dim_duration = 30.0
+bright_duration = 3.0
 
 [node name="PipeAnchor" type="Node2D" parent="." node_paths=PackedStringArray("rotate_target")]
 position = Vector2(444, 332)
@@ -19,24 +29,34 @@ rotation_smoothing = 0.33
 active_threshold = 0.3
 return_delay = 0.25
 
-[node name="PipeSprite" type="Sprite2D" parent="PipeAnchor"]
-position = Vector2(-164, 108)
-scale = Vector2(0.206216, 0.206216)
+[node name="PipeBGContainer" type="Node2D" parent="PipeAnchor"]
+
+[node name="PipeSprite" type="Sprite2D" parent="PipeAnchor/PipeBGContainer"]
+position = Vector2(-151, 70)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_th6oy")
 
-[node name="PipeEyes" parent="PipeAnchor/PipeSprite" instance=ExtResource("2_tfchw")]
-position = Vector2(-459.716, 146.959)
-scale = Vector2(0.8, 0.8)
+[node name="PipeEyesContainer" type="Node2D" parent="PipeAnchor"]
 
-[node name="PipeMouth" parent="PipeAnchor/PipeSprite" instance=ExtResource("3_p2oxx")]
-position = Vector2(-448.412, 320.294)
-scale = Vector2(0.698547, 0.698547)
+[node name="PipeEyes" parent="PipeAnchor/PipeEyesContainer" instance=ExtResource("2_tfchw")]
+position = Vector2(-242, 96)
+scale = Vector2(0.16, 0.16)
+
+[node name="PipeMouthContainer" type="Node2D" parent="PipeAnchor"]
+
+[node name="PipeMouth" parent="PipeAnchor/PipeMouthContainer" instance=ExtResource("3_p2oxx")]
+position = Vector2(-241, 135)
+scale = Vector2(0.139709, 0.139709)
 close_delay = 0.1
 
-[node name="PipeSmoke" parent="PipeAnchor/PipeSprite" instance=ExtResource("5_k812v")]
-position = Vector2(-425.803, -113.045)
-scale = Vector2(4.854, 4.854)
+[node name="PipeEmbersContainer" type="Node2D" parent="PipeAnchor"]
 
-[node name="PipeEmbers" parent="PipeAnchor/PipeSprite" instance=ExtResource("6_me2rj")]
-position = Vector2(-460.682, -130.931)
-scale = Vector2(0.633349, 0.633349)
+[node name="PipeEmbers" parent="PipeAnchor/PipeEmbersContainer" instance=ExtResource("6_me2rj")]
+position = Vector2(-243, 44)
+scale = Vector2(0.1236, 0.1236)
+
+[node name="PipeDimSmoke" parent="PipeAnchor/PipeEmbersContainer" instance=ExtResource("5_k812v")]
+position = Vector2(-245, 19)
+
+[node name="PipeSmokeExplosive" parent="PipeAnchor/PipeEmbersContainer" instance=ExtResource("8_t2s6u")]
+position = Vector2(-12, -14)
