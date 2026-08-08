@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bwfefk64x8nb1"]
 
 [ext_resource type="Script" uid="uid://bb1hgdmuo5ss2" path="res://scripts/components/rotate_manager.gd" id="1_ek8wb"]
-[ext_resource type="Texture2D" uid="uid://c4i6i4lbkgkk2" path="res://assets/img/SmokePIpe.png" id="1_th6oy"]
+[ext_resource type="Texture2D" uid="uid://fal0w5rd4gdg" path="res://assets/img/SmokePIpe.png" id="1_th6oy"]
 [ext_resource type="PackedScene" uid="uid://blpox8kjkbyo5" path="res://scenes/pipe/PipeEyes.tscn" id="2_tfchw"]
 [ext_resource type="Script" uid="uid://bfi0eo4opw7tc" path="res://scripts/components/inhale_manager.gd" id="3_ms8cu"]
 [ext_resource type="PackedScene" uid="uid://bj2ryxeif40yk" path="res://scenes/pipe/PipeMouth.tscn" id="3_p2oxx"]
