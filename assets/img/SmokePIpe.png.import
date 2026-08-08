@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4i6i4lbkgkk2"
-path="res://.godot/imported/SmokePIpe.png-088dd16798c7cfb95fe92595a9184a13.ctex"
+uid="uid://fal0w5rd4gdg"
+path="res://.godot/imported/SmokePipe.png-07c6df80f6368ff8249e552edaf723fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/SmokePIpe.png"
-dest_files=["res://.godot/imported/SmokePIpe.png-088dd16798c7cfb95fe92595a9184a13.ctex"]
+source_file="res://assets/img/SmokePipe.png"
+dest_files=["res://.godot/imported/SmokePipe.png-07c6df80f6368ff8249e552edaf723fb.ctex"]
 
 [params]
 
