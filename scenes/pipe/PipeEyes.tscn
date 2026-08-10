@@ -13,21 +13,21 @@ metadata/_custom_type_script = "uid://dphwui6kt8jla"
 [node name="EyesOpen" type="Node2D" parent="."]
 
 [node name="LeftEyeOpen" type="Sprite2D" parent="EyesOpen"]
-position = Vector2(-170, 0)
+position = Vector2(-34, 0)
 texture = ExtResource("2_eoia0")
 flip_h = true
 
 [node name="RightEyeOpen" type="Sprite2D" parent="EyesOpen"]
-position = Vector2(170, 0)
+position = Vector2(34, 0)
 texture = ExtResource("2_eoia0")
 
 [node name="EyesClosed" type="Node2D" parent="."]
 visible = false
 
 [node name="LeftEyeClosed" type="Sprite2D" parent="EyesClosed"]
-position = Vector2(-170, 0)
+position = Vector2(-34, 0)
 texture = ExtResource("3_v6xtj")
 
 [node name="LeftEyeClosed2" type="Sprite2D" parent="EyesClosed"]
-position = Vector2(170, 0)
+position = Vector2(34, 0)
 texture = ExtResource("3_v6xtj")
