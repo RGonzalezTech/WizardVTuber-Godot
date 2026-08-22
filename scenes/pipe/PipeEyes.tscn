@@ -6,8 +6,8 @@
 
 [node name="PipeEyes" type="Node2D" node_paths=PackedStringArray("eyes_open", "eyes_closed")]
 script = ExtResource("1_bfcvk")
-eyes_open = NodePath("EyesOpen")
-eyes_closed = NodePath("EyesClosed")
+eyes_open = [NodePath("EyesOpen")]
+eyes_closed = [NodePath("EyesClosed")]
 metadata/_custom_type_script = "uid://dphwui6kt8jla"
 
 [node name="EyesOpen" type="Node2D" parent="."]

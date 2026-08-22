@@ -6,9 +6,9 @@ extends Node2D
 
 @export_group("Eyes")
 ## The eyes to show when open
-@export var eyes_open: Node2D
+@export var eyes_open: Array[Node2D]
 ## The eyes to show when closed
-@export var eyes_closed: Node2D
+@export var eyes_closed: Array[Node2D]
 
 @export_group("Blinking")
 ## How long between blinks
@@ -62,8 +62,12 @@ func _get_next_blink_interval() -> float:
 # Else, show the closed ones
 func _render_eyes() -> void:
     if _eyes_open:
-        eyes_open.show()
-        eyes_closed.hide()
+        for eye in eyes_open:
+            eye.show()
+        for eye in eyes_closed:
+            eye.hide()
     else:
-        eyes_open.hide()
-        eyes_closed.show()
+        for eye in eyes_open:
+            eye.hide()
+        for eye in eyes_closed:
+            eye.show()
