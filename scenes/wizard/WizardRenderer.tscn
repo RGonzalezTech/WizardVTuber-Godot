@@ -68,12 +68,28 @@ visible = false
 position = Vector2(0, 4)
 texture = ExtResource("6_67m66")
 
-[node name="WizardLeftEyeBrow" type="Sprite2D" parent="WizardBody"]
-position = Vector2(26, -199)
+[node name="WizardLeftEyeBrowContainer" type="Node2D" parent="WizardBody" node_paths=PackedStringArray("rotate_target")]
+position = Vector2(18, -186)
+script = ExtResource("1_ek8wb")
+rotate_target = NodePath(".")
+rotation_min_deg = 15.0
+rotation_max_deg = -10.0
+metadata/_custom_type_script = "uid://bb1hgdmuo5ss2"
+
+[node name="WizardLeftEyeBrow" type="Sprite2D" parent="WizardBody/WizardLeftEyeBrowContainer"]
+position = Vector2(8, -3)
 texture = ExtResource("7_67m66")
 
-[node name="WizardLeftMustache" type="Sprite2D" parent="WizardBody"]
-position = Vector2(16, -116)
+[node name="WizardLeftMustacheContainer" type="Node2D" parent="WizardBody" node_paths=PackedStringArray("rotate_target")]
+position = Vector2(27, -130)
+script = ExtResource("1_ek8wb")
+rotate_target = NodePath(".")
+rotation_min_deg = -10.0
+rotation_max_deg = 15.0
+metadata/_custom_type_script = "uid://bb1hgdmuo5ss2"
+
+[node name="WizardLeftMustache" type="Sprite2D" parent="WizardBody/WizardLeftMustacheContainer"]
+position = Vector2(-11, 14)
 texture = ExtResource("8_nob6s")
 
 [node name="WizardNose" type="Sprite2D" parent="WizardBody"]
@@ -91,12 +107,28 @@ visible = false
 position = Vector2(0, 5)
 texture = ExtResource("6_67m66")
 
-[node name="WizardRightEyeBrow" type="Sprite2D" parent="WizardBody"]
-position = Vector2(99, -192)
+[node name="WizardRightEyeBrowContainer" type="Node2D" parent="WizardBody" node_paths=PackedStringArray("rotate_target")]
+position = Vector2(111, -179)
+script = ExtResource("1_ek8wb")
+rotate_target = NodePath(".")
+rotation_min_deg = -10.0
+rotation_max_deg = 15.0
+metadata/_custom_type_script = "uid://bb1hgdmuo5ss2"
+
+[node name="WizardRightEyeBrow" type="Sprite2D" parent="WizardBody/WizardRightEyeBrowContainer"]
+position = Vector2(-12, -3)
 texture = ExtResource("10_3ppng")
 
-[node name="WizardRightMustache" type="Sprite2D" parent="WizardBody"]
-position = Vector2(73, -111)
+[node name="WizardRightMustacheContainer" type="Node2D" parent="WizardBody" node_paths=PackedStringArray("rotate_target")]
+position = Vector2(58, -124)
+script = ExtResource("1_ek8wb")
+rotate_target = NodePath(".")
+rotation_min_deg = 10.0
+rotation_max_deg = -15.0
+metadata/_custom_type_script = "uid://bb1hgdmuo5ss2"
+
+[node name="WizardRightMustache" type="Sprite2D" parent="WizardBody/WizardRightMustacheContainer"]
+position = Vector2(15, 13)
 texture = ExtResource("11_67m66")
 
 [node name="PipeAnchor" type="Node2D" parent="." node_paths=PackedStringArray("rotate_target")]
