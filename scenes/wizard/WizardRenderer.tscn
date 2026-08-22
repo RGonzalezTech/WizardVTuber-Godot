@@ -1,15 +1,18 @@
-[gd_scene load_steps=20 format=3 uid="uid://bwfefk64x8nb1"]
+[gd_scene load_steps=23 format=3 uid="uid://bwfefk64x8nb1"]
 
 [ext_resource type="Script" uid="uid://bb1hgdmuo5ss2" path="res://scripts/components/rotate_manager.gd" id="1_ek8wb"]
 [ext_resource type="Texture2D" uid="uid://fal0w5rd4gdg" path="res://assets/img/SmokePipe.png" id="1_th6oy"]
+[ext_resource type="Texture2D" uid="uid://mxlitkqhifge" path="res://assets/img/sprite_wizard_base_table_only.png" id="2_3ppng"]
 [ext_resource type="PackedScene" uid="uid://blpox8kjkbyo5" path="res://scenes/pipe/PipeEyes.tscn" id="2_tfchw"]
 [ext_resource type="Texture2D" uid="uid://b7bxufuma0wh3" path="res://assets/img/sprite_arm_right_typing.png" id="2_xp40p"]
 [ext_resource type="Script" uid="uid://bfi0eo4opw7tc" path="res://scripts/components/inhale_manager.gd" id="3_ms8cu"]
 [ext_resource type="PackedScene" uid="uid://bj2ryxeif40yk" path="res://scenes/pipe/PipeMouth.tscn" id="3_p2oxx"]
+[ext_resource type="Script" uid="uid://dphwui6kt8jla" path="res://scripts/components/blink_manager.gd" id="4_nob6s"]
 [ext_resource type="Texture2D" uid="uid://cndr0wpn7y8fk" path="res://assets/img/sprite_wizard_faceless_body.png" id="5_3c1b0"]
 [ext_resource type="PackedScene" uid="uid://dt7cqrjqpb4du" path="res://scenes/pipe/PipeSmokeDim.tscn" id="5_k812v"]
 [ext_resource type="Texture2D" uid="uid://ph7lcpgxbym6" path="res://assets/img/sprite_laptop_top_only.png" id="5_r0sx6"]
 [ext_resource type="Texture2D" uid="uid://dlgy8nnuf0dcp" path="res://assets/img/sprite_wizard_eye_open.png" id="6_8f7l7"]
+[ext_resource type="Texture2D" uid="uid://tii6l4vi0gwh" path="res://assets/img/sprite_wizard_eye_closed.png" id="6_67m66"]
 [ext_resource type="PackedScene" uid="uid://cfn4v8ggufpvb" path="res://scenes/pipe/PipeEmbers.tscn" id="6_me2rj"]
 [ext_resource type="Texture2D" uid="uid://c77hnbagy51uc" path="res://assets/img/sprite_wizard_nose.png" id="7_2fhuq"]
 [ext_resource type="Texture2D" uid="uid://br6dksg3o42j0" path="res://assets/img/sprite_wizard_eyebrow_left.png" id="7_67m66"]
@@ -30,6 +33,10 @@ burst_smoke = NodePath("../PipeAnchor/PipeEmbersContainer/PipeSmokeExplosive")
 dim_duration = 30.0
 bright_duration = 3.0
 
+[node name="WizardTable" type="Sprite2D" parent="."]
+position = Vector2(404, 434)
+texture = ExtResource("2_3ppng")
+
 [node name="SpriteLaptop" type="Sprite2D" parent="."]
 position = Vector2(171, 557)
 texture = ExtResource("10_t4xir")
@@ -41,12 +48,25 @@ texture = ExtResource("2_xp40p")
 [node name="WizardBody" type="Node2D" parent="."]
 position = Vector2(404, 434)
 
+[node name="WizardBlinkManager" type="Node2D" parent="WizardBody" node_paths=PackedStringArray("eyes_open", "eyes_closed")]
+script = ExtResource("4_nob6s")
+eyes_open = [NodePath("../WizardLeftEyeContainer/WizardLeftEyeOpen"), NodePath("../WizardRightEyeContainer/WizardRightEyeOpen")]
+eyes_closed = [NodePath("../WizardLeftEyeContainer/WizardLeftEyeClosed"), NodePath("../WizardRightEyeContainer/WizardRightEyeClosed")]
+metadata/_custom_type_script = "uid://dphwui6kt8jla"
+
 [node name="WizardBody" type="Sprite2D" parent="WizardBody"]
 texture = ExtResource("5_3c1b0")
 
-[node name="WizardLeftEye" type="Sprite2D" parent="WizardBody"]
+[node name="WizardLeftEyeContainer" type="Node2D" parent="WizardBody"]
 position = Vector2(32, -163)
+
+[node name="WizardLeftEyeOpen" type="Sprite2D" parent="WizardBody/WizardLeftEyeContainer"]
 texture = ExtResource("6_8f7l7")
+
+[node name="WizardLeftEyeClosed" type="Sprite2D" parent="WizardBody/WizardLeftEyeContainer"]
+visible = false
+position = Vector2(0, 4)
+texture = ExtResource("6_67m66")
 
 [node name="WizardLeftEyeBrow" type="Sprite2D" parent="WizardBody"]
 position = Vector2(26, -199)
@@ -60,9 +80,16 @@ texture = ExtResource("8_nob6s")
 position = Vector2(42, -143)
 texture = ExtResource("7_2fhuq")
 
-[node name="WizardRightEye" type="Sprite2D" parent="WizardBody"]
+[node name="WizardRightEyeContainer" type="Node2D" parent="WizardBody"]
 position = Vector2(91, -155)
+
+[node name="WizardRightEyeOpen" type="Sprite2D" parent="WizardBody/WizardRightEyeContainer"]
 texture = ExtResource("6_8f7l7")
+
+[node name="WizardRightEyeClosed" type="Sprite2D" parent="WizardBody/WizardRightEyeContainer"]
+visible = false
+position = Vector2(0, 5)
+texture = ExtResource("6_67m66")
 
 [node name="WizardRightEyeBrow" type="Sprite2D" parent="WizardBody"]
 position = Vector2(99, -192)
