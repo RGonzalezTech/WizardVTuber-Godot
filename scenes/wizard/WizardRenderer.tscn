@@ -1,18 +1,23 @@
-[gd_scene load_steps=15 format=3 uid="uid://bwfefk64x8nb1"]
+[gd_scene load_steps=20 format=3 uid="uid://bwfefk64x8nb1"]
 
 [ext_resource type="Script" uid="uid://bb1hgdmuo5ss2" path="res://scripts/components/rotate_manager.gd" id="1_ek8wb"]
 [ext_resource type="Texture2D" uid="uid://fal0w5rd4gdg" path="res://assets/img/SmokePipe.png" id="1_th6oy"]
-[ext_resource type="Texture2D" uid="uid://mxlitkqhifge" path="res://assets/img/sprite_wizard_base_table_only.png" id="2_i6iqb"]
 [ext_resource type="PackedScene" uid="uid://blpox8kjkbyo5" path="res://scenes/pipe/PipeEyes.tscn" id="2_tfchw"]
 [ext_resource type="Texture2D" uid="uid://b7bxufuma0wh3" path="res://assets/img/sprite_arm_right_typing.png" id="2_xp40p"]
 [ext_resource type="Script" uid="uid://bfi0eo4opw7tc" path="res://scripts/components/inhale_manager.gd" id="3_ms8cu"]
 [ext_resource type="PackedScene" uid="uid://bj2ryxeif40yk" path="res://scenes/pipe/PipeMouth.tscn" id="3_p2oxx"]
-[ext_resource type="Texture2D" uid="uid://c6ps8iwrl8v4c" path="res://assets/img/sprite_wizard_base_only.png" id="4_i6iqb"]
+[ext_resource type="Texture2D" uid="uid://cndr0wpn7y8fk" path="res://assets/img/sprite_wizard_faceless_body.png" id="5_3c1b0"]
 [ext_resource type="PackedScene" uid="uid://dt7cqrjqpb4du" path="res://scenes/pipe/PipeSmokeDim.tscn" id="5_k812v"]
 [ext_resource type="Texture2D" uid="uid://ph7lcpgxbym6" path="res://assets/img/sprite_laptop_top_only.png" id="5_r0sx6"]
+[ext_resource type="Texture2D" uid="uid://dlgy8nnuf0dcp" path="res://assets/img/sprite_wizard_eye_open.png" id="6_8f7l7"]
 [ext_resource type="PackedScene" uid="uid://cfn4v8ggufpvb" path="res://scenes/pipe/PipeEmbers.tscn" id="6_me2rj"]
+[ext_resource type="Texture2D" uid="uid://c77hnbagy51uc" path="res://assets/img/sprite_wizard_nose.png" id="7_2fhuq"]
+[ext_resource type="Texture2D" uid="uid://br6dksg3o42j0" path="res://assets/img/sprite_wizard_eyebrow_left.png" id="7_67m66"]
+[ext_resource type="Texture2D" uid="uid://dgkw0ewkqvex2" path="res://assets/img/sprite_wizard_mustache_left.png" id="8_nob6s"]
 [ext_resource type="PackedScene" uid="uid://dsb24y56g2vc4" path="res://scenes/pipe/PipeSmokeExplosive.tscn" id="8_t2s6u"]
+[ext_resource type="Texture2D" uid="uid://cq8spnyg5b2r3" path="res://assets/img/sprite_wizard_eyerbrow_right.png" id="10_3ppng"]
 [ext_resource type="Texture2D" uid="uid://ci3qyce42v4d0" path="res://assets/img/sprite_laptop.png" id="10_t4xir"]
+[ext_resource type="Texture2D" uid="uid://lvpqdaipphhv" path="res://assets/img/sprite_wizard_mustache_right.png" id="11_67m66"]
 [ext_resource type="Texture2D" uid="uid://bvkhh4m1o677" path="res://assets/img/sprite_arm_left_typing.png" id="12_i6iqb"]
 
 [node name="WizardRenderer" type="Node2D"]
@@ -25,10 +30,6 @@ burst_smoke = NodePath("../PipeAnchor/PipeEmbersContainer/PipeSmokeExplosive")
 dim_duration = 30.0
 bright_duration = 3.0
 
-[node name="SpriteWizardTable" type="Sprite2D" parent="."]
-position = Vector2(404, 434)
-texture = ExtResource("2_i6iqb")
-
 [node name="SpriteLaptop" type="Sprite2D" parent="."]
 position = Vector2(171, 557)
 texture = ExtResource("10_t4xir")
@@ -37,9 +38,39 @@ texture = ExtResource("10_t4xir")
 position = Vector2(273, 500)
 texture = ExtResource("2_xp40p")
 
-[node name="SpriteWizardBody" type="Sprite2D" parent="."]
+[node name="WizardBody" type="Node2D" parent="."]
 position = Vector2(404, 434)
-texture = ExtResource("4_i6iqb")
+
+[node name="WizardBody" type="Sprite2D" parent="WizardBody"]
+texture = ExtResource("5_3c1b0")
+
+[node name="WizardLeftEye" type="Sprite2D" parent="WizardBody"]
+position = Vector2(32, -163)
+texture = ExtResource("6_8f7l7")
+
+[node name="WizardLeftEyeBrow" type="Sprite2D" parent="WizardBody"]
+position = Vector2(26, -199)
+texture = ExtResource("7_67m66")
+
+[node name="WizardLeftMustache" type="Sprite2D" parent="WizardBody"]
+position = Vector2(16, -116)
+texture = ExtResource("8_nob6s")
+
+[node name="WizardNose" type="Sprite2D" parent="WizardBody"]
+position = Vector2(42, -143)
+texture = ExtResource("7_2fhuq")
+
+[node name="WizardRightEye" type="Sprite2D" parent="WizardBody"]
+position = Vector2(91, -155)
+texture = ExtResource("6_8f7l7")
+
+[node name="WizardRightEyeBrow" type="Sprite2D" parent="WizardBody"]
+position = Vector2(99, -192)
+texture = ExtResource("10_3ppng")
+
+[node name="WizardRightMustache" type="Sprite2D" parent="WizardBody"]
+position = Vector2(73, -111)
+texture = ExtResource("11_67m66")
 
 [node name="PipeAnchor" type="Node2D" parent="." node_paths=PackedStringArray("rotate_target")]
 position = Vector2(444, 332)

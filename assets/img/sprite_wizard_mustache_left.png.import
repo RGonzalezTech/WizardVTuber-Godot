@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6ps8iwrl8v4c"
-path="res://.godot/imported/sprite_wizard_base_only.png-85451a5f97d575655401aa2c2e3b1149.ctex"
+uid="uid://dgkw0ewkqvex2"
+path="res://.godot/imported/sprite_wizard_mustache_left.png-debb5814ab79d31ad790d9c022a3de4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/sprite_wizard_base_only.png"
-dest_files=["res://.godot/imported/sprite_wizard_base_only.png-85451a5f97d575655401aa2c2e3b1149.ctex"]
+source_file="res://assets/img/sprite_wizard_mustache_left.png"
+dest_files=["res://.godot/imported/sprite_wizard_mustache_left.png-debb5814ab79d31ad790d9c022a3de4a.ctex"]
 
 [params]
 
