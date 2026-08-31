@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bwfefk64x8nb1"]
+[gd_scene load_steps=24 format=3 uid="uid://bwfefk64x8nb1"]
 
 [ext_resource type="Script" uid="uid://bb1hgdmuo5ss2" path="res://scripts/components/rotate_manager.gd" id="1_ek8wb"]
 [ext_resource type="Texture2D" uid="uid://fal0w5rd4gdg" path="res://assets/img/SmokePipe.png" id="1_th6oy"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cfn4v8ggufpvb" path="res://scenes/pipe/PipeEmbers.tscn" id="6_me2rj"]
 [ext_resource type="Texture2D" uid="uid://c77hnbagy51uc" path="res://assets/img/sprite_wizard_nose.png" id="7_2fhuq"]
 [ext_resource type="Texture2D" uid="uid://br6dksg3o42j0" path="res://assets/img/sprite_wizard_eyebrow_left.png" id="7_67m66"]
+[ext_resource type="Script" uid="uid://bj28ljijxgjhq" path="res://scripts/components/look_manager.gd" id="7_rued2"]
 [ext_resource type="Texture2D" uid="uid://dgkw0ewkqvex2" path="res://assets/img/sprite_wizard_mustache_left.png" id="8_nob6s"]
 [ext_resource type="PackedScene" uid="uid://dsb24y56g2vc4" path="res://scenes/pipe/PipeSmokeExplosive.tscn" id="8_t2s6u"]
 [ext_resource type="Texture2D" uid="uid://cq8spnyg5b2r3" path="res://assets/img/sprite_wizard_eyerbrow_right.png" id="10_3ppng"]
@@ -58,7 +59,10 @@ metadata/_custom_type_script = "uid://dphwui6kt8jla"
 texture = ExtResource("5_3c1b0")
 
 [node name="WizardLeftEyeContainer" type="Node2D" parent="WizardBody"]
-position = Vector2(32, -163)
+position = Vector2(31, -167)
+script = ExtResource("7_rued2")
+top_left = Vector2(41, -173)
+bottom_right = Vector2(21, -162)
 
 [node name="WizardLeftEyeOpen" type="Sprite2D" parent="WizardBody/WizardLeftEyeContainer"]
 texture = ExtResource("6_8f7l7")
@@ -97,7 +101,10 @@ position = Vector2(42, -143)
 texture = ExtResource("7_2fhuq")
 
 [node name="WizardRightEyeContainer" type="Node2D" parent="WizardBody"]
-position = Vector2(91, -155)
+position = Vector2(85, -160)
+script = ExtResource("7_rued2")
+top_left = Vector2(99, -164)
+bottom_right = Vector2(72, -156)
 
 [node name="WizardRightEyeOpen" type="Sprite2D" parent="WizardBody/WizardRightEyeContainer"]
 texture = ExtResource("6_8f7l7")
