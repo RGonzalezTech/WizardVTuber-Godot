@@ -24,6 +24,7 @@ driver/enable_input=true
 
 WizardManager="*res://scripts/autoloads/WizardManager.gd"
 AudioManager="*res://scripts/autoloads/AudioManager.gd"
+CompanionListener="*res://scripts/autoloads/CompanionListener.gd"
 
 [display]
 
