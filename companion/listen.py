@@ -15,7 +15,7 @@ import time
 
 UDP_IP = os.environ.get("COMPANION_UDP_IP", "127.0.0.1")
 UDP_PORT = int(os.environ.get("COMPANION_UDP_PORT", "9876"))
-UPDATE_HZ = int(os.environ.get("COMPANION_HZ", "30"))
+UPDATE_HZ = int(os.environ.get("COMPANION_HZ", "10"))
 TYPING_TIMEOUT = float(os.environ.get("COMPANION_TYPING_TIMEOUT", "1.0"))
 
 # ---------------------------------------------------------------------------
