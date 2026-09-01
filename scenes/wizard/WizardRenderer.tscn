@@ -59,10 +59,10 @@ metadata/_custom_type_script = "uid://dphwui6kt8jla"
 texture = ExtResource("5_3c1b0")
 
 [node name="WizardLeftEyeContainer" type="Node2D" parent="WizardBody"]
-position = Vector2(31, -167)
+position = Vector2(30, -165)
 script = ExtResource("7_rued2")
-top_left = Vector2(41, -173)
-bottom_right = Vector2(21, -162)
+top_left = Vector2(33, -165)
+bottom_right = Vector2(22, -162)
 
 [node name="WizardLeftEyeOpen" type="Sprite2D" parent="WizardBody/WizardLeftEyeContainer"]
 texture = ExtResource("6_8f7l7")
@@ -101,10 +101,10 @@ position = Vector2(42, -143)
 texture = ExtResource("7_2fhuq")
 
 [node name="WizardRightEyeContainer" type="Node2D" parent="WizardBody"]
-position = Vector2(85, -160)
+position = Vector2(77, -159)
 script = ExtResource("7_rued2")
-top_left = Vector2(99, -164)
-bottom_right = Vector2(72, -156)
+top_left = Vector2(90, -159)
+bottom_right = Vector2(76, -158)
 
 [node name="WizardRightEyeOpen" type="Sprite2D" parent="WizardBody/WizardRightEyeContainer"]
 texture = ExtResource("6_8f7l7")
