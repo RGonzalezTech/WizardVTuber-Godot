@@ -11,16 +11,23 @@ extends Node2D
 @export var bottom_left: Vector2
 ## The position when the mouse is in the bottom-right corner
 @export var bottom_right: Vector2
+## How fast the node catches up to the target (higher = snappier)
+@export var lerp_speed: float = 15.0
+
+var _target: Vector2
 
 func _ready() -> void:
+    _target = position
     CompanionListener.mouse_moved.connect(_on_mouse_moved)
 
-func _on_mouse_moved(mouse_x: float, mouse_y: float) -> void:
-    var top_left_x = lerpf(top_left.x, top_right.x, mouse_x)
-    var top_left_y = lerpf(top_left.y, top_right.y, mouse_x)
-    var bottom_left_x = lerpf(bottom_left.x, bottom_right.x, mouse_x)
-    var bottom_left_y = lerpf(bottom_left.y, bottom_right.y, mouse_x)
+func _process(delta: float) -> void:
+    position = position.lerp(_target, clamp(lerp_speed * delta, 0.0, 1.0))
 
-    var top_left_vec = Vector2(top_left_x, top_left_y)
-    var bottom_left_vec = Vector2(bottom_left_x, bottom_left_y)
-    position = lerp(top_left_vec, bottom_left_vec, mouse_y)
+func _on_mouse_moved(mouse_x: float, mouse_y: float) -> void:
+    var top_x = lerpf(top_left.x, top_right.x, mouse_x)
+    var top_y = lerpf(top_left.y, top_right.y, mouse_y)
+    var bot_x = lerpf(bottom_left.x, bottom_right.x, mouse_x)
+    var bot_y = lerpf(bottom_left.y, bottom_right.y, mouse_y)
+
+    _target.x = lerpf(top_x, bot_x, mouse_y)
+    _target.y = lerpf(top_y, bot_y, mouse_y)
