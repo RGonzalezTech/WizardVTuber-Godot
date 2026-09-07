@@ -35,6 +35,13 @@ burst_smoke = NodePath("../PipeAnchor/PipeEmbersContainer/PipeSmokeExplosive")
 dim_duration = 30.0
 bright_duration = 3.0
 
+[node name="WizardBlinkManager" type="Node2D" parent="." node_paths=PackedStringArray("eyes_open", "eyes_closed")]
+position = Vector2(404, 434)
+script = ExtResource("4_nob6s")
+eyes_open = [NodePath("../WizardBody/WizardLeftEyeContainer/WizardLeftEyeOpen"), NodePath("../WizardBody/WizardRightEyeContainer/WizardRightEyeOpen")]
+eyes_closed = [NodePath("../WizardBody/WizardLeftEyeContainer/WizardLeftEyeClosed"), NodePath("../WizardBody/WizardRightEyeContainer/WizardRightEyeClosed")]
+metadata/_custom_type_script = "uid://dphwui6kt8jla"
+
 [node name="WizardTable" type="Sprite2D" parent="."]
 position = Vector2(404, 434)
 texture = ExtResource("2_3ppng")
@@ -54,12 +61,6 @@ bottom_right = Vector2(230, 503)
 
 [node name="WizardBody" type="Node2D" parent="."]
 position = Vector2(404, 434)
-
-[node name="WizardBlinkManager" type="Node2D" parent="WizardBody" node_paths=PackedStringArray("eyes_open", "eyes_closed")]
-script = ExtResource("4_nob6s")
-eyes_open = [NodePath("../WizardLeftEyeContainer/WizardLeftEyeOpen"), NodePath("../WizardRightEyeContainer/WizardRightEyeOpen")]
-eyes_closed = [NodePath("../WizardLeftEyeContainer/WizardLeftEyeClosed"), NodePath("../WizardRightEyeContainer/WizardRightEyeClosed")]
-metadata/_custom_type_script = "uid://dphwui6kt8jla"
 
 [node name="WizardBody" type="Sprite2D" parent="WizardBody"]
 texture = ExtResource("5_3c1b0")
