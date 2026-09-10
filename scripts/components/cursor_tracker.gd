@@ -1,4 +1,4 @@
-class_name MouseMoveManager
+class_name CursorTracker
 extends Node2D
 
 ## Makes the node move around in relation to the mouse position.
