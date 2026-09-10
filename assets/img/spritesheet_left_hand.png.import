@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://civyx44gjvquo"
-path="res://.godot/imported/sprite_arm_left_typing.png-b8bff5a89922acca86bd0db53fc6ff9d.ctex"
+uid="uid://cekkob7ocxuh5"
+path="res://.godot/imported/spritesheet_left_hand.png-d9ccfdde81b835c0705a93441aae03f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/sprite_arm_left_typing.png"
-dest_files=["res://.godot/imported/sprite_arm_left_typing.png-b8bff5a89922acca86bd0db53fc6ff9d.ctex"]
+source_file="res://assets/img/spritesheet_left_hand.png"
+dest_files=["res://.godot/imported/spritesheet_left_hand.png-d9ccfdde81b835c0705a93441aae03f8.ctex"]
 
 [params]
 
