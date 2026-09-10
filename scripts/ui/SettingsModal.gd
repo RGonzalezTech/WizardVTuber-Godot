@@ -5,6 +5,8 @@ extends PanelContainer
 signal closed
 
 @onready var _mic_option_button: OptionButton = %MicOptionButton
+@onready var _gate_slider: HSlider = %GateSlider
+@onready var _gate_value_label: Label = %GateValueLabel
 @onready var _close_button: Button = %CloseButton
 
 func _ready() -> void:
@@ -14,6 +16,11 @@ func _ready() -> void:
 	_populate_microphone_list()
 	_mic_option_button.item_selected.connect(_on_mic_selected)
 	_close_button.pressed.connect(_on_close_pressed)
+
+	# Noise gate slider: sync to AudioManager's current value
+	_gate_slider.value = AudioManager.noise_gate_threshold
+	_gate_value_label.text = "%.2f" % AudioManager.noise_gate_threshold
+	_gate_slider.value_changed.connect(_on_gate_threshold_changed)
 
 ## Populate the OptionButton with available microphone devices
 func _populate_microphone_list() -> void:
@@ -29,6 +36,10 @@ func _populate_microphone_list() -> void:
 func _on_mic_selected(index: int) -> void:
 	var device_name := _mic_option_button.get_item_text(index)
 	AudioManager.set_microphone_device(device_name)
+
+func _on_gate_threshold_changed(value: float) -> void:
+	AudioManager.noise_gate_threshold = value
+	_gate_value_label.text = "%.2f" % value
 
 func _on_close_pressed() -> void:
 	closed.emit()

@@ -11,11 +11,17 @@ const CAPTURE_BUS: StringName = "CaptureAudio"
 
 #region Private Variables
 ## This player streams the microphone input
-## to the Cpature audio bus (which is muted in-editor)
+## to the Capture audio bus (which is muted in-editor)
 var _player: AudioStreamPlayer
 
 ## The index of the capture bus
 var _capture_bus_index: int
+#endregion
+
+#region Public Settings
+## Volume below this threshold is treated as silence (0.0).
+## Tune this to ignore background hum, keyboard clicks, etc.
+@export var noise_gate_threshold: float = 0.45
 #endregion
 
 #region API
@@ -34,7 +40,8 @@ func get_audio_input() -> float:
     var left_volume = AudioServer.get_bus_peak_volume_left_db(_capture_bus_index, 0)
     var right_volume = AudioServer.get_bus_peak_volume_right_db(_capture_bus_index, 0)
     var max_volume = max(left_volume, right_volume)
-    return clamp(remap(max_volume, -60.0, 0.0, 0.0, 1.0), 0.0, 1.0)
+    var raw = clamp(remap(max_volume, -60.0, 0.0, 0.0, 1.0), 0.0, 1.0)
+    return raw if raw >= noise_gate_threshold else 0.0
 
 #endregion
 
