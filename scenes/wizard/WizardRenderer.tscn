@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bwfefk64x8nb1"]
+[gd_scene load_steps=40 format=3 uid="uid://bwfefk64x8nb1"]
 
 [ext_resource type="Script" uid="uid://bb1hgdmuo5ss2" path="res://scripts/components/rotate_manager.gd" id="1_ek8wb"]
 [ext_resource type="Texture2D" uid="uid://fal0w5rd4gdg" path="res://assets/img/SmokePipe.png" id="1_th6oy"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://civyx44gjvquo" path="res://assets/img/sprite_arm_left_typing.png" id="25_gwrr3"]
 [ext_resource type="Texture2D" uid="uid://biqt478f0d30c" path="res://assets/img/spritesheet_right_hand.png" id="26_qs477"]
 [ext_resource type="Script" uid="uid://c8gs46c2n7w5f" path="res://scripts/components/typing_toggle_manager.gd" id="27_armtg"]
+[ext_resource type="Script" uid="uid://bc5tuj7vhwkj1" path="res://scripts/components/arm_dancer.gd" id="28_dance"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m87uq"]
 atlas = ExtResource("8_ld1yn")
@@ -132,6 +133,8 @@ position = Vector2(171, 557)
 texture = ExtResource("10_t4xir")
 
 [node name="ArmRight" type="Node2D" parent="."]
+script = ExtResource("28_dance")
+bob_amplitude = 6.0
 
 [node name="SpriteArmRight" type="Sprite2D" parent="ArmRight"]
 position = Vector2(274, 500)
@@ -286,6 +289,9 @@ position = Vector2(-245, 19)
 position = Vector2(-12, -14)
 
 [node name="ArmLeft" type="Node2D" parent="."]
+script = ExtResource("28_dance")
+bob_amplitude = 6.0
+phase = 0.5
 
 [node name="SpriteArmLeft" type="Sprite2D" parent="ArmLeft"]
 position = Vector2(594, 553)
