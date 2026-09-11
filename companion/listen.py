@@ -66,8 +66,21 @@ def on_move(x: int, y: int) -> None:
         mouse_y = (y - VIRTUAL_TOP) / VIRTUAL_H
 
 
+# Modifier keys that shouldn't count as typing on their own
+_MODIFIER_KEYS = {
+    keyboard.Key.ctrl, keyboard.Key.ctrl_l, keyboard.Key.ctrl_r,
+    keyboard.Key.shift, keyboard.Key.shift_l, keyboard.Key.shift_r,
+    keyboard.Key.alt, keyboard.Key.alt_l, keyboard.Key.alt_r, keyboard.Key.alt_gr,
+    keyboard.Key.cmd, keyboard.Key.cmd_l, keyboard.Key.cmd_r,
+}
+
+
 def on_press(key) -> None:
     global is_typing, last_key_time
+    # Ignore bare modifier presses — holding Ctrl/Alt/Shift/Win
+    # shouldn't count as typing.
+    if key in _MODIFIER_KEYS:
+        return
     with _lock:
         last_key_time = time.time()
         is_typing = True
